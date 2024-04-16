@@ -1,7 +1,9 @@
 const tips = require('express').Router();
 
 
-
+notes.get('/', (req, res) => {
+    readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
+  });
 
 notes.post('/', (req, res) => {
     console.log(req.body);
