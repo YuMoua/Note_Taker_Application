@@ -1,24 +1,25 @@
-const tips = require('express').Router();
-
+const notes = require('express').Router();
+const notesData = require('../db/notes.json')
 
 notes.get('/', (req, res) => {
-    readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
+    res.json(notesData)
   });
+
 
 notes.post('/', (req, res) => {
     console.log(req.body);
   
-    const { title, text } = req.body;
+    // const { title, text } = req.body;
   
-    if (req.body) {
-      const newNote = {
-        title,
-        text
-      };
-  
-      readAndAppend(newNote, './db/notes.json');
-      res.json(`notes added successfully`);
-    } else {
-      res.error('Error in adding notes');
-    }
+    // if (req.body) {
+    //   const newNote = {
+    //     title,
+    //     text
+    //   };
+
+      newNote = req.body;
+      newNote.id = Math.floor((1 + Math.random())*0x10000).subString(1);
+      console.log(newNote)
   });
+
+  module.exports = notes;
