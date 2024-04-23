@@ -15,7 +15,7 @@
   ```
   [npm i] and then [node index.js] inside of the terminal.
   ```
-  ![alt text](<Screenshot 2024-04-22 213843.png>)
+  
   ```
   
   ```
